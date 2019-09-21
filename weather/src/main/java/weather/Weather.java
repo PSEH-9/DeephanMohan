@@ -49,11 +49,11 @@ public class Weather {
         this.cod = cod;
     }
 
-    @Override
-    public String toString() {
-        return "Weather{" +
-                "cod='" + cod + '\'' +
-                ", cnt=" + cnt +
-                '}';
+    public String toString(String city, Double min, Double max, boolean carryUmbrella, boolean useSunScreen) {
+        return "Weather forecast for the city "+city +
+                " for the next three days: \n\nMaximum temperature(In kelvin) = '" + max + '\'' +
+                "\nMinimum temperature(In kelvin) = '" + min +'\''+
+                "\n"+(carryUmbrella ? new String("Carry an umbrella!") : "")+
+                "\n"+(useSunScreen ? new String("Use Sunscreen Lotion!") : "");
     }
 }
