@@ -34,16 +34,16 @@ public class WeatherController {
         ObjectNode resp = (ObjectNode) st.getList().get(0);
         ObjectNode temp = (ObjectNode) resp.get("main");
         String weather =  resp.get("weather").get(0).get("main").toString();
-        /*
-        Double tempMin  = temp.get("temp_min");
-        Double tempMax = temp.get("temp_max");
-        Double currTemp = temp.get("temp");
-        if(weather.get("main").equals("Rain")) carryUmbrella=true;
+
+        Long tempMin  = temp.get("temp_min").asLong();
+        Long tempMax = temp.get("temp_max").asLong();
+        Long currTemp = temp.get("temp").asLong();
+        if(weather.equals("Rain")) carryUmbrella=true;
         if(currTemp > MAX_TEMPERATURE) useSunScreen = true;
         return st.toString(city,tempMin, tempMax, carryUmbrella, useSunScreen);
 
-         */
-        return st.toString("Dallas",200.0,300.23,true,true);
+
+        //return st.toString("Dallas",200.0,300.23,true,true);
     }
 
     /*
