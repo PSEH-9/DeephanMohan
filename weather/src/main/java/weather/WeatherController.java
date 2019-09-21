@@ -14,15 +14,7 @@ import org.springframework.web.client.RestTemplate;
 public class WeatherController {
 
     private static final Double MAX_TEMPERATURE = 313.15; // IN KELVIN EQUAL TO 40 DEGREE CELSIUS
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
-    @RequestMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Greeting(counter.incrementAndGet(),
-                            String.format(template, name));
-    }
-
+   
 
     @RequestMapping(value ="/weather",produces = "application/json")
     public String getWeather(@RequestParam(value="city", defaultValue="London") String city){
